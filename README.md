@@ -1,5 +1,6 @@
 # PatchPrivatePreviewFeedbackGroup
-This group will share the private preview documentation, issues for partial update feature. 
+This group will share the private preview documentation, issues for partial update feature for JSON patch for SQL API
+
 ## Feature Overview
 The Patch API feature is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to client performing a full document replace. 
 ## Main Benefits: 
@@ -39,7 +40,8 @@ Step2: Download the Nuget Package /  Maven package
 - Java Maven Package: 
 
 ## Sample Code
-### .NET : The full sample is found at xxxxxx 
+### .NET : 
+The full sample is found at [.NET v3 samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/3fa885fdd84e2f8852d2a1d5c75c56b642b5bba3/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs)
 
 #### Patching an item with a single patch operation: 
 ~~~~
@@ -102,7 +104,8 @@ transactionalBatchInternalFalse.PatchItem(id: testItem2.id, patchOperationsUpdat
 transactionalBatchInternalFalse.ExecuteAsync());
 ~~~~
 
-### Java: The full sample is found at [Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1 (mvnrepository.com)](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
+### Java: 
+The full sample is found at [Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1 (mvnrepository.com)](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
 
 #### Patching an document with multiple patch operations
 ~~~~
@@ -176,7 +179,9 @@ Patch will be available across serverless and provisioned billing models.
 #### How is RU pricing calculated ?
 There will not be significant reduction in RU. However there are other benefits as mentioned in teh documents. We are also evaluating RU charging model as we plan for GA
 
-#### What is difference between Bulk and Batch?
+
+#### Is there a limit to the number of Patch operations that can be done within a single Patch specification?
+There is a limit of 10 patch operations that can be added in a single patch specification. If we need this number to be increased, please send us an email to cosmosdbpatchpreview@microsoft.com
 
 
 
