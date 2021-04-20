@@ -170,10 +170,13 @@ Content-Type:application/json-patch+json
 #### Is this an implementation of JSON Patch RFC 6905 ?
 Cosmos DB Patch Operation is inspired by JSON Patch and follows it closely. Currently we do not implement all features of JSON patch such as (Copy, Move) and we do implement few other features (Conditional Patch) which is not in the specification
 
-#### Is Patch compatible with Serverless , provided throughput and autoscale modes of billing ?
+#### Is Patch compatible with Serverless , provisioned throughput and autoscale modes of billing ?
+Patch will be available across serverless and provisioned billing models. 
 
 #### How is RU pricing calculated ?
+There will not be significant reduction in RU. However there are other benefits as mentioned in teh documents. We are also evaluating RU charging model as we plan for GA
 
+#### What is difference between Bulk and Batch?
 
 
 
