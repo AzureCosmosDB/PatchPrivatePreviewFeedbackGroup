@@ -144,7 +144,7 @@ CosmosItemResponse<ToDoActivity> responseFail = this.container.patchItem(
 ~~~~
 
 #### Sample Transactional Patch for Batch operations
-
+~~~~
 CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
 cosmosPatchOperations.set("/cost", testDoc.getCost() + 12);
 
@@ -156,6 +156,8 @@ TransactionalBatch batch = TransactionalBatch.createTransactionalBatch(this.getP
 batch.createItemOperation(testDoc);
 batch.patchItemOperation(testDoc.getId(), cosmosPatchOperations);
 TransactionalBatchResponse batchResponse = container.executeTransactionalBatch(batch).block();
+~~~~
+
 ### JSON patch format is 
 ~~~
 The JSON Patch API format is.  
