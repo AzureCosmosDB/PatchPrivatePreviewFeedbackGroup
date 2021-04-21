@@ -158,17 +158,6 @@ batch.patchItemOperation(testDoc.getId(), cosmosPatchOperations);
 TransactionalBatchResponse batchResponse = container.executeTransactionalBatch(batch).block();
 ~~~~
 
-### JSON patch format is 
-~~~
-The JSON Patch API format is.  
-PATCH /dbs/{db}/colls/{coll}/documents/{doc}
-HTTP/1.1
-Content-Type:application/json-patch+json
-[
-	{op=”set”,path=”/name/first”, value=”Bob”},
-	{op=”set”, path=”/address/city”,value=”Jamaica”}
-]
-~~~
 
 ## Frequently Asked Questions (FAQs)
 
