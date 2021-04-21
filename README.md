@@ -24,10 +24,6 @@ The Patch API feature is a top-level REST API to modify an item efficiently by s
 - Multiple items Patch Operation in using Bulk APIs
 - Transactional Batch Patch Operation
 
-#### APIs
-- SQL API
-- Cassandra API
-
 #### SDKs
 - .NET
 - Java
