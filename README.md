@@ -33,7 +33,7 @@ The Patch API feature is a top-level REST API to modify an item efficiently by s
 - Java
 
 ## How to get started: 
-Step 1: Whitelist your account : Email us cosmosdbpatchpreview@microsoft.com  with your “Cosmos DB” account name and subscription ID
+Step 1: Whitelist your account : Email us cosmosdbpatchpreview@microsoft.com  with your “Cosmos DB” account name and subscription ID in case you have not filled in nomination form with these details.
 
 Step2: Download the Nuget Package /  Maven package
 - .NET Nuget Package : NuGet Gallery | Microsoft.Azure.Cosmos 3.18.0-preview or attached nuget file in this repo
