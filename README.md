@@ -177,7 +177,7 @@ Cosmos DB Patch Operation is inspired by JSON Patch and follows it closely. Curr
 Patch will be available across serverless and provisioned billing models. 
 
 #### How is RU pricing calculated ?
-There will not be significant reduction in RU. However there are other benefits as mentioned in teh documents. We are also evaluating RU charging model as we plan for GA
+There will not be significant reduction in RU. However there are other benefits as mentioned in the documents. We are also evaluating RU charging model as we plan for GA
 
 
 #### Is there a limit to the number of Patch operations that can be done within a single Patch specification?
