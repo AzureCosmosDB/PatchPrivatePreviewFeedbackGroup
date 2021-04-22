@@ -171,5 +171,13 @@ There will not be significant reduction in RU. However there are other benefits 
 There is a limit of 10 patch operations that can be added in a single patch specification. If we need this number to be increased, please send us an email to cosmosdbpatchpreview@microsoft.com
 
 
+#### Is Patch supported on local CosmosDB emulator?
+Yes, please follow the below steps to enable it.
+1) Download the latest CosmosDB emulator from https://aka.ms/cosmosdb-emulator
+2) Open PowerShell in admin mode:
+   a) cd 'C:\Program Files\Azure Cosmos DB Emulator'
+   b) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /overrides='enableJsonPatch:true'**
+
+Patch feature should now be available on local emulator. 
 
 
