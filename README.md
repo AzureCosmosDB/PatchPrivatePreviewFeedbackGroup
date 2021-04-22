@@ -174,10 +174,8 @@ There is a limit of 10 patch operations that can be added in a single patch spec
 #### Is Patch supported on local CosmosDB emulator?
 Yes, please follow the below steps to enable it.
 1) Download the latest CosmosDB emulator from https://aka.ms/cosmosdb-emulator
-2) Open PowerShell in admin mode:
-   a) cd 'C:\Program Files\Azure Cosmos DB Emulator'
-   b) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /overrides='enableJsonPatch:true'**
-
-Patch feature should now be available on local emulator. 
+2) Open PowerShell in admin mode
+3) cd 'C:\Program Files\Azure Cosmos DB Emulator'
+4) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /overrides='enableJsonPatch:true'**
 
 
