@@ -1,5 +1,6 @@
 # PatchPrivatePreviewFeedbackGroup
 This group will share the private preview documentation, issues for partial update feature for JSON patch for SQL API.
+
 Please do provide us your feedback, questions or comments via "issues" section on this repo - 2nd tab on the top left here. 
 
 ## Feature Overview
