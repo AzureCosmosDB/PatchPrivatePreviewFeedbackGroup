@@ -1,5 +1,6 @@
 # PatchPrivatePreviewFeedbackGroup
-This group will share the private preview documentation, issues for partial update feature for JSON patch for SQL API
+This group will share the private preview documentation, issues for partial update feature for JSON patch for SQL API.
+Please do provide us your feedback, questions or comments via "issues" section on this repo - 2nd tab on the top left here. 
 
 ## Feature Overview
 The Patch API feature is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to client performing a full document replace. 
