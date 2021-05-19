@@ -31,11 +31,13 @@ The Patch API feature is a top-level REST API to modify an item efficiently by s
 - Java
 
 ## How to get started: 
-Step 1: Whitelist your account : Email us cosmosdbpatchpreview@microsoft.com  with your “Cosmos DB” account name and subscription ID in case you have not filled in nomination form with these details.
+Step 1: Whitelist your account : Fill the nomination form : https://aka.ms/cosmosdbpatch or email us cosmosdbpatchpreview@microsoft.com for specific clarifications.
 
 Step2: Download the Nuget Package /  Maven package
 - .NET Nuget Package : NuGet Gallery | Microsoft.Azure.Cosmos 3.18.0-preview or attached nuget file in this repo
-- Java Maven Package: 
+- Java Maven Package: Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1(https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
+
+Step3: Send us your feedback, comments, questions using the Issues tab on this repo. 
 
 ## Sample Code
 ### .NET : 
@@ -103,7 +105,7 @@ transactionalBatchInternalFalse.ExecuteAsync());
 ~~~~
 
 ### Java: 
-The full sample is found at [Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1 (mvnrepository.com)](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
+The Maven package is found at [Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1 (mvnrepository.com)](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
 
 #### Patching an document with multiple patch operations
 ~~~~
