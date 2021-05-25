@@ -177,9 +177,9 @@ Partial document update is normalized into request unit billing in the same styl
 There is a limit of 10 patch operations that can be added in a single patch specification. If we need this number to be increased, please send us an email to cosmosdbpatchpreview@microsoft.com
 
 
-#### Is partial document update supported on local CosmosDB emulator?
+#### Is partial document update supported on local Azure CosmosDB emulator?
 Yes, please follow the below steps to enable it.
-1) Download the latest CosmosDB emulator from https://aka.ms/cosmosdb-emulator
+1) Download the latest Azure CosmosDB emulator from https://aka.ms/cosmosdb-emulator
 2) Open PowerShell in admin mode
 3) cd 'C:\Program Files\Azure Cosmos DB Emulator'
 4) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /overrides='enableJsonPatch:true'**
