@@ -163,7 +163,7 @@ TransactionalBatchResponse batchResponse = container.executeTransactionalBatch(b
 
 ## Frequently Asked Questions (FAQs)
 
-#### Is this an implementation of JSON Patch RFC 6905 ?
+#### Is this an implementation of JSON Patch RFC 6905?
 Azure Cosmos DB partial document update is inspired by JSON patch and follows it closely. Currently we do not implement all features of JSON patch such as (Copy, Move) and we do implement few other features (Conditional Patch) which is not in the specification
 
 #### Is partial document update compatible with serverless , provisioned throughput and autoscale modes of billing?
