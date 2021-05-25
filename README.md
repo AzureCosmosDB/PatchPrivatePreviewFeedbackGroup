@@ -4,7 +4,7 @@ This group will share the private preview documentation, issues for partial upda
 Please do provide us your feedback, questions or comments via "issues" section on this repo - 2nd tab on the top left here. 
 
 ## Feature Overview
-The Patch API feature is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to client performing a full document replace. 
+The Partial Document update API feature is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to client performing a full document replace. 
 ## Main Benefits: 
 * Reduced network call payload, avoiding whole document to be sent on the wire 
 * Avoiding extra “READ “operation for OCC check by the client and hence saving on the extra read RU charges 
