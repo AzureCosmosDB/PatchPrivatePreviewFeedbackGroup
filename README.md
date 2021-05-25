@@ -1,16 +1,18 @@
 # Partial Document Update Preview -  Docs and Feedback
-This group will share the private preview documentation, issues for partial document update feature for JSON patch for SQL API.
 
-Please do provide us your feedback, questions or comments via "issues" section on this repo - 2nd tab on the top left here. 
+This documentation is provided as a resource for participants in the private preview of Azure Cosmos DB partial document update. Note: partial document update is currently available for Core (SQL) API only. 
+
+Please do provide us your feedback, questions or comments via the "issues" section on this repo (second tab on the top left)
 
 ## Feature Overview
-The Partial Document update API feature is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to client performing a full document replace. 
+Azure Cosmos DB partial document update is a top-level REST API to modify an item efficiently by sending only the modified properties/fields in a document from the client side as opposed to requiring the client to perform a full document replace. 
+
 ## Main Benefits: 
 * Reduced network call payload, avoiding whole document to be sent on the wire 
-* Avoiding extra “READ “operation for OCC check by the client and hence saving on the extra read RU charges 
-* Significant savings on end-to-end latency for a modifying the document 
-* Avoid extra CPU cycles on client side to read doc, perform occ checks, locally patch document & then send it over the wire as replace API call 
-* Multi Master conflict resolution to be transparent and automatic with path updates on discrete paths with the same document
+* Avoiding extra “READ “operation for OCC check by the client and hence saving on the extra read RU charges
+* Significant savings on end-to-end latency for a modifying the document
+* Avoid extra CPU cycles on client side to read doc, perform occ checks, locally patch document & then send it over the wire as replace API call
+* Multi-region write (formerly "multi-master") conflict resolution to be transparent and automatic with path updates on discrete paths with the same document
 
 ## Supported Operations, Modes, APIs & SDKs :
 #### Operations
@@ -21,17 +23,17 @@ The Partial Document update API feature is a top-level REST API to modify an ite
 - Increment as plus or minus “x”, i.e +/- X
 
 #### Modes
-- Conditional Patch based on a SQL like filter predicate
-- Single item Patch Operation command
-- Multiple items Patch Operation in using Bulk APIs
-- Transactional Batch Patch Operation
+- Conditional patch based on a SQL-like filter predicate
+- Single item patch operation command
+- Multiple items patch operation in using bulk APIs
+- Transactional batch patch operation
 
 #### SDKs
 - .NET
 - Java
 
 ## How to get started: 
-Step 1: Whitelist your account : Fill the nomination form : https://aka.ms/cosmosdbpatch or email us cosmosdbpatchpreview@microsoft.com for specific clarifications.
+Step 1: Whitelist your account by completing the nomination form : https://aka.ms/cosmos-partial-doc-update or emailing us cosmosdbpatchpreview@microsoft.com for specific clarifications.
 
 Step2: Download the Nuget Package /  Maven package
 - .NET Nuget Package : NuGet Gallery | Microsoft.Azure.Cosmos 3.18.0-preview or attached nuget file in this repo
@@ -52,7 +54,7 @@ ItemResponse<item> response = await container.PatchItemAsync<item>(
                 partitionKey: new PartitionKey(“pkey”),
                 patchOperations: new[] { PatchOperation.Replace("/TotalDue", 0) });
 ~~~~
-#### Patching an document with multiple patch operations
+#### Patching a document with multiple patch operations
 ~~~~
 //using PatchOperation command to do multiple patches on a document. The Patch is issued based on ID lookup for an id = 5, partition key value of pkey.
 Console.WriteLine("\n1.6 - Patching a item using its Id");
@@ -69,7 +71,7 @@ container.PatchItemAsync<item>(
                 patchOperations: patchOperations );
 ~~~~
 
-#### Conditional Patch syntax based on filter predicate
+#### Conditional patch syntax based on filter predicate
 ~~~~
 //using Conditional Patch Operation command to replace a property. The patch is issued based on a filter predicate condition; issued to id =5, partition key “pkey” and replaing the Shipped Date to current Datetime 
 PatchItemRequestOptions patchItemRequestOptions = new PatchItemRequestOptions
@@ -83,7 +85,7 @@ response = await container.PatchItemAsync<SalesOrder>(
                 patchItemRequestOptions);
 ~~~~
 
-#### Sample Transactional Patch for Batch Patch Operation
+#### Sample transactional patch for batch patch operation
 ~~~~
 List<PatchOperation> patchOperationsUpdateTaskNum12 = new List<PatchOperation>()
             {
@@ -107,7 +109,7 @@ transactionalBatchInternalFalse.ExecuteAsync());
 ### Java: 
 The Maven package is found at [Maven Repository: com.azure » azure-cosmos » 4.15.0-beta.1 (mvnrepository.com)](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.15.0-beta.1)
 
-#### Patching an document with multiple patch operations
+#### Patching a document with multiple patch operations
 ~~~~
 //using PatchOperation command to do multiple patches on a document. The Patch is issued based on ID lookup for an testitem.id, partition key value of testitem.status.
 CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
@@ -124,7 +126,7 @@ CosmosItemResponse<ToDoActivity> response = this.container.patchItem(
 	            ToDoActivity.class);
 ~~~~
 
-#### Sample of a conditional Patch syntax based on filter predicate
+#### Sample of a conditional patch syntax based on filter predicate
 ~~~~
 //using Conditional Patch options. The patch is issued based on a filter predicate condition; issued to id = testitem.id, partition key “testitem.status” 
 CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
@@ -143,7 +145,7 @@ CosmosItemResponse<ToDoActivity> responseFail = this.container.patchItem(
                 ToDoActivity.class);
 ~~~~
 
-#### Sample Transactional Patch for Batch operations
+#### Sample transactional patch for batch operations
 ~~~~
 CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
 cosmosPatchOperations.set("/cost", testDoc.getCost() + 12);
@@ -162,20 +164,20 @@ TransactionalBatchResponse batchResponse = container.executeTransactionalBatch(b
 ## Frequently Asked Questions (FAQs)
 
 #### Is this an implementation of JSON Patch RFC 6905 ?
-Cosmos DB Patch Operation is inspired by JSON Patch and follows it closely. Currently we do not implement all features of JSON patch such as (Copy, Move) and we do implement few other features (Conditional Patch) which is not in the specification
+Azure Cosmos DB partial document update is inspired by JSON patch and follows it closely. Currently we do not implement all features of JSON patch such as (Copy, Move) and we do implement few other features (Conditional Patch) which is not in the specification
 
-#### Is Patch compatible with Serverless , provisioned throughput and autoscale modes of billing ?
-Patch will be available across serverless and provisioned billing models. 
+#### Is partial document update compatible with serverless , provisioned throughput and autoscale modes of billing?
+Partial document update will be available across serverless and provisioned billing models. 
 
 #### How is RU pricing calculated ?
-There will not be significant reduction in RU. However there are other benefits as mentioned in the documents. We are also evaluating RU charging model as we plan for GA
+Partial document update is normalized into request unit billing in the same style as other database operations. Users should not expect a significant reduction in RU.
 
 
-#### Is there a limit to the number of Patch operations that can be done within a single Patch specification?
+#### Is there a limit to the number of partial document updates operations that can be done within a single patch specification?
 There is a limit of 10 patch operations that can be added in a single patch specification. If we need this number to be increased, please send us an email to cosmosdbpatchpreview@microsoft.com
 
 
-#### Is Patch supported on local CosmosDB emulator?
+#### Is partial document update supported on local CosmosDB emulator?
 Yes, please follow the below steps to enable it.
 1) Download the latest CosmosDB emulator from https://aka.ms/cosmosdb-emulator
 2) Open PowerShell in admin mode
