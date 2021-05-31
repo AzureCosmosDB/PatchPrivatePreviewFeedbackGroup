@@ -172,10 +172,14 @@ Partial document update will be available across serverless and provisioned bill
 #### How is RU pricing calculated ?
 Partial document update is normalized into request unit billing in the same style as other database operations. Users should not expect a significant reduction in RU.
 
+#### What is the difference between operator Set and Replace?
+For a detailed answer, refer [2](https://github.com/AzureCosmosDB/PatchPrivatePreviewFeedbackGroup/issues/2)
 
 #### Is there a limit to the number of partial document updates operations that can be done within a single patch specification?
 There is a limit of 10 patch operations that can be added in a single patch specification. If we need this number to be increased, please send us an email to cosmosdbpatchpreview@microsoft.com
 
+#### Is Patch supported for system properties?
+We do not support Patch API on system properties. However, if you want it for some usecase, you can send an email and we can enable this for your account.
 
 #### Is partial document update supported on local Azure CosmosDB emulator?
 Yes, please follow the below steps to enable it.
