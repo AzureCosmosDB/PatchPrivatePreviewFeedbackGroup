@@ -186,6 +186,6 @@ Yes, please follow the below steps to enable it.
 1) Download the latest Azure CosmosDB emulator from https://aka.ms/cosmosdb-emulator
 2) Open PowerShell in admin mode
 3) cd 'C:\Program Files\Azure Cosmos DB Emulator'
-4) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /overrides='enableJsonPatch:true'**
+4) C:\Program Files\Azure Cosmos DB Emulator> **.\CosmosDB.Emulator.exe /EnablePreview**
 
 
