@@ -1,6 +1,8 @@
 # Partial Document Update Preview -  Docs and Feedback
 
-This documentation is provided as a resource for participants in the private preview of Azure Cosmos DB partial document update. Note: partial document update is currently available for Core (SQL) API only. 
+This documentation is provided as a resource for participants in the private preview of Azure Cosmos DB partial document update.
+
+Note: the partial document update preview is applicable to Core (SQL) API only. Users looking for partial updates in MongoDB API are advised to use the partial update operators (e.g. `$set`, `$inc`, etc) in `db.collection.update()` and `db.collection.findAndModify()`.
 
 Please do provide us your feedback, questions or comments via the "issues" section on this repo (second tab on the top left)
 
