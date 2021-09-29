@@ -168,6 +168,85 @@ batch.patchItemOperation(testDoc.getId(), cosmosPatchOperations);
 TransactionalBatchResponse batchResponse = container.executeTransactionalBatch(batch).block();
 ~~~~
 
+### NodeJS:
+
+The npm package can be found at [NPM package: com.azure » @azure/cosmos » 3.14.1 (npmjs.com)](https://www.npmjs.com/package/@azure/cosmos/v/3.14.1)
+
+
+#### Patching an item with a single patch operation
+
+```
+const patchSource = itemDefList[1];
+const replaceOperation: PatchOperation[] =
+[{
+op: "replace",
+path: "/lastName",
+value: "Martin"
+}];
+const { resource: patchSource1 } = await container.item(patchSource.lastName).patch(replaceOperation);
+```
+
+#### Patching a document with multiple patch operations
+
+```
+const multipleOperations: PatchOperation[] = [
+{
+op: "add",
+path: "/aka",
+value: "MeFamily"
+},
+{
+op: "replace",
+path: "/lastName",
+value: "Jose"
+},
+{
+op: "remove",
+path: "/parents"
+},
+{
+op: "set",
+path: "/address/zip",
+value: 90211
+},
+{
+op: "incr",
+path: "/address/zip",
+value: 5
+}
+];
+const { resource: patchSource2 } = await container.item(patchSource.id).patch(multipleOperations);
+```
+
+#### Conditional patch syntax based on filter predicate
+
+```
+const operations : PatchOperation[] = [
+{
+op: "add",
+path: "/newImproved",
+value: "it works"
+}
+];
+const condition = "from c where NOT IS_DEFINED(c.newImproved)";
+const { resource: patchSource3 } = await container
+.item(patchSource.id)
+.patch({ condition, operations });
+console.log(`Patched ${patchSource} to new ${patchSource3}.`);
+```
+
+#### Sample transactional patch for bulk patch operation
+
+```
+{
+operationType: BulkOperationType.Patch,
+partitionKey: {},
+id: patchItemId,
+resourceBody: {
+operations: [{ op: PatchOperationType.set, path: "/class", value: "2021" }]
+}
+}
+```
 
 ## Frequently Asked Questions (FAQs)
 
