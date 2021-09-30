@@ -33,6 +33,7 @@ Azure Cosmos DB partial document update is a top-level REST API to modify an ite
 #### SDKs
 - .NET
 - Java
+- NodeJS
 
 ## How to get started: 
 Step 1: Whitelist your account by completing the nomination form : https://aka.ms/cosmos-partial-doc-update or emailing us cosmosdbpatchpreview@microsoft.com for specific clarifications.
@@ -176,14 +177,13 @@ The npm package can be found at [NPM package: com.azure » @azure/cosmos » 3.14
 #### Patching an item with a single patch operation
 
 ```
-const patchSource = testItem;
 const replaceOperation: PatchOperation[] =
 [{
 op: "replace",
 path: "/lastName",
 value: "Martin"
 }];
-const { resource: patchSource1 } = await container.item(patchSource.lastName).patch(replaceOperation);
+const { resource: testItem1 } = await container.item(testItem.lastName).patch(replaceOperation);
 ```
 
 #### Patching a document with multiple patch operations
@@ -215,7 +215,7 @@ path: "/address/zip",
 value: 5
 }
 ];
-const { resource: patchSource2 } = await container.item(patchSource.id).patch(multipleOperations);
+const { resource: testItem2 } = await container.item(testItem.id).patch(multipleOperations);
 ```
 
 #### Conditional patch syntax based on filter predicate
@@ -229,23 +229,23 @@ value: "it works"
 }
 ];
 const condition = "from c where NOT IS_DEFINED(c.newImproved)";
-const { resource: patchSource3 } = await container
-.item(patchSource.id)
-.patch({ condition, operations });
-console.log(`Patched ${patchSource} to new ${patchSource3}.`);
+const { resource: testitem3 } = await container.item(itestItem.id).patch({ condition, operations });
 ```
 
 #### Sample transactional patch for bulk patch operation
 
 ```
-{
-operationType: BulkOperationType.Patch,
-partitionKey: {},
-id: patchItemId,
-resourceBody: {
-operations: [{ op: PatchOperationType.set, path: "/class", value: "2021" }]
-}
-}
+const operations = [    
+    {
+      operationType: BulkOperationType.Patch,
+      partitionKey: {},
+      id: patchItemId,
+      resourceBody: {
+        operations: [{ op: PatchOperationType.set, path: "/class", value: "2021" }]
+      }
+    }
+  ];
+const response = await container.items.bulk(operations);
 ```
 
 ## Frequently Asked Questions (FAQs)
