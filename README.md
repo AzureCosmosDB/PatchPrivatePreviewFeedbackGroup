@@ -176,7 +176,7 @@ The npm package can be found at [NPM package: com.azure » @azure/cosmos » 3.14
 #### Patching an item with a single patch operation
 
 ```
-const patchSource = itemDefList[1];
+const patchSource = testItem;
 const replaceOperation: PatchOperation[] =
 [{
 op: "replace",
