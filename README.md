@@ -229,7 +229,7 @@ value: "it works"
 }
 ];
 const condition = "from c where NOT IS_DEFINED(c.newImproved)";
-const { resource: testitem3 } = await container.item(itestItem.id).patch({ condition, operations });
+const { resource: testItem3 } = await container.item(testItem.id).patch({ condition, operations });
 ```
 
 #### Sample transactional patch for bulk patch operation
